@@ -6,15 +6,10 @@
 # array which comes from packages.sh while excluding all packages from the 
 # 'excluded_packages' array.
 
-
 # The array of packages is called "packages" this contains all packages that are
 # not amd or intell specific. amd specific will be called 'amd_packages' and
 # intell specific packges intell_packages. There is also an array of packages
 # which should not be included in the install script called 'excluded_packages'
-
-# TODO: atm there there is no function to install yay, this needs to be added
-# and inside the packages.sh packages need to organized in a way which allows
-# packages required for installing yay to be installed first
 
 source ~/dotfiles/packges/.config/packages/packages.sh # contains arrays: packges, intel_packages, amd_packages and excluded_packages
 
@@ -25,6 +20,21 @@ get_cpu_make() {
     cpu_maker=${cpu_maker,,}
   done
   echo "$cpu_maker" # This is return value 
+}
+
+# Installs yay along with pakcages needed for yay
+install_yay() {
+  local user_input=""
+  while [[ "$user_input" != "yes" && "$user_input" != "no" ]]; do
+    read -rp "Would you like to install yay? ('yes' or 'no'): " user_input
+  done
+
+  if [[ "$user_input" == "yes" ]]; then
+    sudo pacman -S --needed git base-devel
+    git clone https://aur.archlinux.org/yay.git
+    cd yay || return
+    makepkg -si
+  fi
 }
 
 # Trys installing packages with yay
@@ -74,6 +84,7 @@ install_general_pkgs() {
 }
 
 main() {
+  install_yay
   install_cpu_packages
   install_general_pkgs
 
