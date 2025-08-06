@@ -1,0 +1,44 @@
+# Get editor completions based on the config schema
+# "$schema" = 'https://starship.rs/config-schema.json'
+
+# Colors
+# Kali red --> #ff5555 or #ff0000
+# Buzz Lightyear gree --> #7CFC00
+# Purple --> #BA55D3
+
+
+format = """$username@$hostname $directory 
+$character"""
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[character]
+success_symbol = '[❯](bold green)' 
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+# Shows time for command to finish
+[cmd_duration]
+disabled = true
+
+
+[username]
+show_always = true
+style_user = "bold #BA55D3"
+format = "[$user]($style)"  
+
+
+[hostname]
+ssh_only = false
+style = "bold #BA55D3"
+format = "[$hostname]($style)"  
+
+[directory]
+style = "bold green"
+format = "[$path]($style) "  # <- clean, no emoji
+
+
+

@@ -1,0 +1,122 @@
+@import "theme.css";
+ * {
+     font-family: "JetBrainsMono Nerd Font", sans-serif;
+     border: none;
+     border-radius: 0px;
+     font-size: 12px;
+ }
+ window#waybar {
+     background: @main-bg;
+ }
+
+
+tooltip {
+  background: @darkmauve;
+  border: 1.5px solid @main-br;
+  border-radius: 8px;
+}
+
+tooltip label {
+  color: @main-fg;
+  margin: -1.5px 3px;
+}
+
+ #window,
+ #clock,
+ #bluetooth,
+ #cpu,
+ #custom-wifi,
+ #custom-power,
+ #wireplumber,
+ #backlight,
+ #battery {
+	color: @module-fg;
+	padding: 7px 5px;
+ }
+
+ tooltip label { 
+	font-size: 10px;
+ }
+
+
+#custom-wifi:hover {
+	color: @hover-fg;
+}
+
+
+ /* -----------------------------------------------------
+ * Workspaces 
+ * ----------------------------------------------------- */
+
+#workspaces {
+  background: transparent;
+}
+
+#workspaces button {
+  color: @module-fg;
+  border-radius: 8px;
+  box-shadow: none;
+  margin: 2px 0;
+  padding: 0 2px;
+  transition: none;
+}
+
+#workspaces button:hover {
+  color: @hover-fg;
+  background: @hover-bg;
+  text-shadow: none;
+}
+
+#workspaces button.active {
+  color: @mauve;
+  background: transparent;
+  border: 2px solid @mauve;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.4);
+  margin: 2px;
+  padding: 0 6px;
+}
+
+/* ─────────────────────────────────────────────────────────┤ power button ├───
+*/
+
+#custom-power {
+  color: @mauve;
+  background: @power;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  margin: 2px 4px 2px 0;
+  padding: 0 6px 0 9px;
+}
+
+#custom-power:hover {
+  color: @hover-fg;
+  background: @hover-bg;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+/* ────────────────────────────────────────────────────────────┤ bluetooth ├───
+*/
+#bluetooth {
+  background: @main-bg;
+  padding-right: 5px;
+}
+
+#bluetooth:hover {
+  color: @hover-fg;
+}
+
+/* ────────────────────────────────────────────────────────┤ output device ├───
+*/
+
+
+#wireplumber {
+  background: @main-bg;
+}
+
+#wireplumber:hover {
+  color: @hover-fg;
+}
+

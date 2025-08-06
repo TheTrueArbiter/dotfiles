@@ -1,0 +1,5 @@
+require("fisixVim.settings")
+require("fisixVim.remap")
+require("fisixVim.lazy_init")
+require("fisixVim.auto-commands")
+require("fisixVim.commands")
