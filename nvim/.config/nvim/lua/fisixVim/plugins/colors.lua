@@ -5,8 +5,8 @@ function setTheme(color)
   vim.cmd.colorscheme(color)
 
   -- Sets background to transparent
-  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 return {
@@ -43,13 +43,28 @@ return {
     end,
   },
 
+ {
+  "tiagovla/tokyodark.nvim",
+    name="tokyodark",
+    priority = 1000,
+    opts = {
+       styles = {
+        comments = { italic = true },
+        keywords = { italic = false },
+        identifiers = { italic = false},
+        functions = {},
+        variables = {},
+    },
+        -- custom options here
+    },
+},
   {
     "Mofiqul/dracula.nvim",
     name = "dracula",
     priority = 1000,
     config = function()
       require("dracula").setup({
-        transparent_bg = true,
+        transparent_bg = false,
         italic_comment = true,
       })
     end,
@@ -62,7 +77,7 @@ return {
     priority = 1000,
     config = function()
       require("jb").setup({
-        transparent = true,
+        transparent = false,
       })
     end,
   },
