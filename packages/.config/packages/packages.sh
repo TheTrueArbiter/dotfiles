@@ -80,4 +80,6 @@ packages=(
   "poppler"
   "yazi"
   "zoxide"
+  "less"
+  "obsidian"
 )

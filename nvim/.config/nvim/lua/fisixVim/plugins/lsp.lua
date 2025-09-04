@@ -65,6 +65,8 @@ return {
         "bashls",
         "jdtls",
         "marksman",
+        "clangd",
+        "tsserver",
       },
       handlers = {
         function(server_name)
@@ -106,8 +108,24 @@ return {
             },
           })
         end,
+
+        ["clangd"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.clangd.setup({
+            capabilities = capabilities,
+            cmd = {
+              "clangd",
+              "--background-index",
+              "--clang-tidy",
+              "--completion-style=detailed",
+              "--header-insertion=never",
+            },
+          })
+        end,
       },
     })
+
+
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
