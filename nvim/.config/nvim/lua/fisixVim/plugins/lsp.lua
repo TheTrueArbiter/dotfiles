@@ -140,6 +140,7 @@ return {
         ["<C-m>"] = cmp.mapping.select_next_item(cmp_select),
         ["<Tab>"] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
       }),
       sources = cmp.config.sources({
         { name = "copilot", group_index = 2 },
