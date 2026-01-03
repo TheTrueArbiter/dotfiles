@@ -7,7 +7,7 @@ local function get_jdtls()
     -- Find the full path to the directory where Mason has downloaded the JDTLS binaries
     local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
     -- Obtain the path to the jar which runs the language server
-    local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+    local launcher = vim.fn.glob(jdtls_path .. "/org.eclipse.equinox.launcher_1.7.0.v20250331-1702.jar")
      -- Declare white operating system we are using, windows use win, macos use mac
     local SYSTEM = "linux"
     -- Obtain the path to configuration files for your specific operating system
@@ -72,6 +72,11 @@ local function java_keymaps()
     vim.keymap.set('n', '<leader>Ju', "<Cmd> JdtUpdateConfig<CR>", { desc = "[J]ava [U]pdate Config" })
 end
 
+-- vim.env.JAVA_HOME = "/usr/lib/jvm/java-17-openjdk"
+-- vim.env.PATH = vim.env.JAVA_HOME .. "/bin:" .. vim.env.PATH
+vim.env.JAVA_HOME = "/usr/lib/jvm/java-25-openjdk"
+vim.env.PATH = vim.env.JAVA_HOME .. "/bin:" .. vim.env.PATH
+
 local function setup_jdtls()
     -- Get access to the jdtls plugin and all of its functionality
     local jdtls = require "jdtls"
@@ -112,7 +117,7 @@ local function setup_jdtls()
 
     -- Set the command that starts the JDTLS language server jar
     local cmd = {
-        'java',
+        '/usr/lib/jvm/java-25-openjdk/bin/java',
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
         '-Dosgi.bundles.defaultStartLevel=4',
         '-Declipse.product=org.eclipse.jdt.ls.core.product',

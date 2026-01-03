@@ -66,7 +66,7 @@ return {
         "jdtls",
         "marksman",
         "clangd",
-        "tsserver",
+        "ts_ls",
       },
       handlers = {
         function(server_name)
