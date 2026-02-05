@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    { import = "fisixVim.plugins" } -- 👈 This imports everything inside your plugins/ directory
+    { import = "fisixVim.plugins" } -- This imports everything inside your plugins/ directory
   },
   change_detection = { notify = false },
 })
